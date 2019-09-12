@@ -1,0 +1,9 @@
+.tooltip-inner{
+    background-color: rgba(255, 0, 0, 0.92);
+    padding: 2px 10px;
+    color: white;
+    border-radius: 3px;
+}
+.bs-tooltip-auto[x-placement^=bottom] .arrow::before, .bs-tooltip-bottom .arrow::before{
+    border-bottom-color: rgba(255, 0, 0, 0.92);
+}

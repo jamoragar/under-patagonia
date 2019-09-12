@@ -1,0 +1,34 @@
+import React from 'react';
+import { Router, Route, Switch, Redirect} from 'react-router-dom';
+import { createBrowserHistory } from 'history';
+
+import Navsidebar from '../Navsidebar/Navsidebar';
+import Gallery from '../Gallery/gallery';
+import Dashboard from '../Dashboard/Dashboard';
+import Upload from '../Upload/Upload';
+import NavigationBar from '../Navbar/Navbar';
+import _404 from '../404/404';
+
+export const history = createBrowserHistory();
+
+const NotFoundRedirect = () => <Redirect to='/not-found' />
+
+
+
+const Routes = (props) => {
+    return(
+        <Router history={history}>
+            <NavigationBar authenticated={props.authenticated} user={props.user}/>
+            <Switch>
+                <Route exact path="/" component={Gallery} />
+                <Route path="/Navsidebar" component={Navsidebar} />
+                <Route path="/Dashboard" component={Dashboard} />
+                <Route path="/Upload" component={Upload} />
+                <Route path="/not-found" component={_404} />
+                <Route component={NotFoundRedirect} />
+            </Switch>
+        </Router>
+    );
+}
+
+export default Routes;
