@@ -1,11 +1,8 @@
-import React, { Fragment, useState } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 
 import './Upload.css';
 
-import UploadInformation, {submitInformation} from './Information/UploadInformation';
-import UploadCover from './Cover/UploadCover';
-import UploadGallery from './Gallery/UploadGallery';
+import UploadInformation from './Information/UploadInformation';
 
 import {Models} from '../Gallery/gallery'; 
 
@@ -19,7 +16,7 @@ const Upload = () => {
 
     if(!models){
         return(
-            <div>
+            <div className='loading'>
                 <h2>Loading....</h2>
             </div>
         )
@@ -31,15 +28,15 @@ const Upload = () => {
          );
         return (
             <div className="col-md-9 ml-sm-auto col-lg-10 px-4 Upload">
-                {/* <UploadCover />
-                <UploadGallery /> */}
-                <div class="text-right mb-3">
-                    <a onClick={() => setModalShow(true)} class="btn btn-success">Nueva(o) Modelo</a>
+                <div className="text-right mb-3">
+                    <button onClick={() => setModalShow(true)} className="btn btn-success">Nueva(o) Modelo</button>
                 </div>
                 <UploadInformation 
                     show={modalShow}
                     onHide={() => setModalShow(false)}
                     />
+                {/* <UploadCover />
+                <UploadGallery /> */}
                 <table className="table table-dark table-hover">
                     <thead>
                         <tr className="bg-primary text-white">
@@ -52,17 +49,23 @@ const Upload = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {content.map((model, i) => {
+                        {content.sort((a,b) => {
+                        a = new Date(a.creationDate);
+                        b = new Date (b.creationDate);
+                        return a > b ? -1 : a < b ? 1 : 0;
+                    }).map((model, i) => {
+                        let date = new Date(model.creationDate).toLocaleDateString("en-GB");
+                        let hour = new Date(model.creationDate).toLocaleTimeString("en-GB")
                             return (
                                 <tr key={i}>
                                     <td>{i}</td>
                                     <td>{model.name + ' ' + model.lastName}</td>
                                     <td>{model.age}</td>
-                                    <td>{model.creationDate}</td>
+                                    <td>{date + ' ' + hour}</td>
                                     <td>{model.promo === true ? 'SI' : 'NO' }</td>
                                     <td align="center">
-                                        <a class="text-primary"><i class="fa fa-fw fa-edit"></i> Editar</a> | 
-                                        <a class="text-danger"><i class="fa fa-fw fa-trash"></i> Borrar</a>
+                                        <a href='# ' className="text-primary"><i className="fa fa-fw fa-edit"></i> Editar</a> | 
+                                        <a href='# ' className="text-danger"><i className="fa fa-fw fa-trash"></i> Borrar</a>
                                     </td>
                                 </tr>
                             );

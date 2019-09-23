@@ -28,7 +28,7 @@ export const Models = () => {
         //
         //
         // subscribed to any change in your data from data base!
-        firebase.database().ref('Models').on('value', (snapshot) => {
+        firebase.database().ref('Models').orderByChild('creationDate').on('value', (snapshot) => {
             // console.log('With ON:',snapshot.val())
             setModels(snapshot.val())
         });
@@ -49,7 +49,7 @@ const Gallery = () => {
     if(content){
         Object.keys(content).map((key, index) => 
             models[index] = content[key]
-         );
+        );
 
         return(
             <div className="appContentBody">
