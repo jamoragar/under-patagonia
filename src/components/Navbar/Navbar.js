@@ -40,8 +40,8 @@ const NavigationBar = (props) => {
                                 </Dropdown.Toggle>
 
                                 <Dropdown.Menu>
-                                    <DropdownItem  href="/Dashboard">Dashboard</DropdownItem>
-                                    <DropdownItem  href="/">Home</DropdownItem>
+                                    <DropdownItem href="/Dashboard">Dashboard</DropdownItem>
+                                    <DropdownItem href="/">Home</DropdownItem>
                                     <Dropdown.Divider />
                                     <Dropdown.Item onClick={() => LogOut()}>Logout</Dropdown.Item>
                                 </Dropdown.Menu>

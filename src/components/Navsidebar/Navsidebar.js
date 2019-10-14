@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { Nav, Navbar } from 'react-bootstrap';
 
 
+
 import './Navsidebar.css'
 
 
@@ -18,7 +19,7 @@ const Navsidebar = () => {
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink to="/Upload" className="nav-link">
+                            <NavLink to={"/Upload"} className="nav-link">
                             Modelos
                             </NavLink>
                         </li>

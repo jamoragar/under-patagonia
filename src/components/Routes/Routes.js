@@ -21,11 +21,11 @@ const Routes = (props) => {
     return(
         <Router history={history}>
             <NavigationBar authenticated={props.authenticated} user={props.user}/>
+            {/* {history.location.pathname === '/Dashboard' ? <Navsidebar /> : ''} */}
             <Switch>
-                <Route exact path="/" component={Gallery} />
-                <Route path="/Navsidebar" component={Navsidebar} />
+                <Route exact path="/" exact={true} component={Gallery} />
                 <Route path="/Dashboard" component={Dashboard} />
-                <Route path="/Upload" component={Upload} />
+                <Route path='/Upload' component={Upload} />
                 <Route path="/not-found" component={_404} />
                 <Route component={NotFoundRedirect} />
             </Switch>
