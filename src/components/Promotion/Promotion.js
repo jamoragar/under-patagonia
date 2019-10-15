@@ -29,25 +29,25 @@ const Promotion = (models) => {
     return (
         <div className="Promotion">
             <Carousel
-            additionalTransfrom={0}
-            arrows
-            autoPlaySpeed={3000}
-            centerMode={false}
-            containerClass="container-with-dots"
-            dotListClass=""
-            autoPlay={3000}
-            draggable
-            focusOnSelect={false}
-            infinite={true}
-            itemClass=""
-            keyBoardControl
-            minimumTouchDrag={80}
-            renderDotsOutside={false}
-            responsive={responsive}
-            showDots={false}
-            sliderClass=""
-            slidesToSlide={1}
-            swipeable
+                additionalTransfrom={0}
+                arrows
+                autoPlaySpeed={3000}
+                centerMode={false}
+                containerClass="container-with-dots"
+                dotListClass=""
+                autoPlay={3000}
+                draggable
+                focusOnSelect={false}
+                infinite={true}
+                itemClass=""
+                keyBoardControl
+                minimumTouchDrag={80}
+                renderDotsOutside={false}
+                responsive={responsive}
+                showDots={false}
+                sliderClass=""
+                slidesToSlide={1}
+                swipeable
             >
                 <Card className="Card"> 
                     <Card.Body>
