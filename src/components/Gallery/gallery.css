@@ -60,8 +60,8 @@
 }
 .flip-img{
     background-color: transparent;
-    width: 200px;
-    height: 300px;
+    width: auto;
+    height: 320px;
 }
 h2{
     margin:15px 0 15px 0;

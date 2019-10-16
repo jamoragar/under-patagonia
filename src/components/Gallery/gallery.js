@@ -65,7 +65,7 @@ const Gallery = () => {
                                 <div className="flip-img">
                                     <div className="flip-img-inner">
                                         <div className="flip-img-front">
-                                            <img className="single-img" src={model.thumbnail} alt="Model"/>
+                                            <img className="single-img card-img-top" src={model.thumbnail} alt="Model"/>
                                         </div>
                                         <div className="flip-img-back">
                                             <h2>{model.verificada? 'Verificada!' : 'No Verificada'}</h2>
