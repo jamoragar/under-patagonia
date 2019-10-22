@@ -4,7 +4,9 @@ import 'firebase/auth';
 import 'firebase/storage'
 
 import {history} from '../Routes/Routes';
+
 // FIREBASE - PRODUCTION VERSION
+
 // var firebaseConfig = {
 //     apiKey: "AIzaSyAwY8zrKGC-9dSAJGmAkme8w_D19yxZML8",
 //     authDomain: "models-gallery-puq.firebaseapp.com",
@@ -14,7 +16,9 @@ import {history} from '../Routes/Routes';
 //     messagingSenderId: "608348651644",
 //     appId: "1:608348651644:web:606807bb235293fd"
 //   };
+
   // FIREBASE - DEVELOPMENT VERSION
+
   var firebaseConfig = {
     apiKey: "AIzaSyBPfCnVzbx7eIcz8sJnzIHZF2_R8g44T-c",
     authDomain: "models-gallery-puq-dev.firebaseapp.com",
@@ -25,6 +29,7 @@ import {history} from '../Routes/Routes';
     appId: "1:154078497677:web:f5d55f4168d22c2e894bc4",
     measurementId: "G-098XRMTG38"
   };
+  
   // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 

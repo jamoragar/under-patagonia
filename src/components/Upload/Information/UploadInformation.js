@@ -22,34 +22,61 @@ const UploadInformation = (props) => {
         const gender = e.target.elements.slt_gender.value;
         const peso = e.target.elements.txt_peso.value;
         const estatura = e.target.elements.txt_estatura.value;
-        const busto = e.target.elements.txt_busto.value;
+        const boobs = e.target.elements.txt_busto.value;
         const cintura = e.target.elements.txt_cintura.value;
         const ass = e.target.elements.txt_ass.value;
         const hairColor = e.target.elements.txt_hairColor.value;
         const services = e.target.elements.slct_services.value;
+        const placePropio = e.target.elements.chk_propio.checked;
+        const placeDomicilio = e.target.elements.chk_domicilio.checked;
+        const placeMotel = e.target.elements.chk_moteles.checked;
+        const city = e.target.elements.slct_city.value;
+        const times = e.target.elements.slct_times.value;
+        const price = e.target.elements.txt_price.value;
+        const certified = e.target.elements.chk_certified.checked;
+        const promo = e.target.elements.chk_promo.checked;
         const nameSplited = name.split(" ");
         let indexName;
     
         if(nameSplited.length > 1) indexName = nameSplited[0] + '_' + nameSplited[1];
         else indexName = 'none';
     
-        console.log(services);
+        console.log(city);
     
-        // firebase.database().ref('Models/' + modelID).set({
-        //     name: name,
-        //     nacionality: nacionality,
-        //     age: age,
-        //     gender : gender,
-        //     weight: peso,
-        //     height: estatura,
-        //     // boobs: busto,
-        //     // waist: cintura,
-        //     // ass: ass,
-        //     hairColor: hairColor,
-        //     services: 
+        firebase.database().ref('Models/' + modelID).set({
+            name: name,
+            nacionality: nacionality,
+            age: age,
+            gender : gender,
+            weight: peso,
+            height: estatura,
+            boobs: boobs,
+            waist: cintura,
+            ass: ass,
+            hairColor: hairColor,
+            services: services,
+            place: {
+                propio: placePropio,
+                domicilio: placeDomicilio,
+                motel: placeMotel
+            },
+            thumbnail: '',
+            images: {
+                0: '',
+                1: '',
+                2: '',
+                3: '',
+                4: ''
+            },
+            city: city,
+            times: times,
+            price: price,
+            certified: certified,
+            promo: promo,
+
     
-        //     creationDate: firebase.database.ServerValue.TIMESTAMP
-        // });
+            creationDate: firebase.database.ServerValue.TIMESTAMP
+        });
         props.onHide();
     }
     return (
@@ -83,13 +110,14 @@ const UploadInformation = (props) => {
                                     
                                     <div className="form-group col-md-2">
                                         <label>Nacionalidad</label>
-                                        <select name="slt_nacionality" className="form-control">
+                                        <select name="slt_nacionality" className="form-control" required>
                                             <option value="Chile">Chile</option>
                                             <option value="Argentina">Argentina</option>
                                             <option value="Perú">Perú</option>
                                             <option value="Bolivia">Bolivia</option>
                                             <option value="Venezuela">Venezuela</option>
                                             <option value="Colombia">Colombia</option>
+                                            <option value="Paraguay">Paraguay</option>
                                             <option value="República Dominicana">República Dominicana</option>
                                             <option value="Cuba">Cuba</option>
                                         </select>
@@ -97,12 +125,12 @@ const UploadInformation = (props) => {
 
                                     <div className="form-group col-md-2">
                                         <label>Edad</label>
-                                        <input type="text" name="txt_age" className="form-control" placeholder="Edad" />
+                                        <input type="text" name="txt_age" className="form-control" placeholder="Edad" required/>
                                     </div>
 
                                     <div className="form-group col-md-2">
                                         <label>Genero</label>
-                                        <select name='slt_gender' className="form-control" defaultValue='Femenino'>
+                                        <select name='slt_gender' className="form-control" defaultValue='Femenino' required>
                                             <option value="Femenino">Femenino</option>
                                             <option value="Masculino">Masculino</option>
                                             <option value="Trans">Trans</option>
@@ -115,7 +143,7 @@ const UploadInformation = (props) => {
                                     <div className="form-group col-md-3">
                                         <label>Peso</label>
                                         <div className="input-group">
-                                            <input type="text" name='txt_peso' className="form-control" placeholder="Peso"  />
+                                            <input type="text" name='txt_peso' className="form-control" placeholder="Peso"  required/>
                                             <div className="input-group-prepend">
                                                 <span className="input-group-text">Kg.</span>
                                             </div>
@@ -124,7 +152,7 @@ const UploadInformation = (props) => {
                                     <div className="form-group col-md-3">
                                         <label>Estatura</label>
                                         <div className="input-group">
-                                            <input name='txt_estatura' type="text" className="form-control" placeholder="Estatura"  />
+                                            <input name='txt_estatura' type="text" className="form-control" placeholder="Estatura"  required/>
                                             <div className="input-group-prepend">
                                                 <span className="input-group-text">Mt.</span>
                                             </div>
@@ -143,12 +171,12 @@ const UploadInformation = (props) => {
                                     <div className="form-group col-md-4">
                                         <label>Color de Cabello</label>
                                         <div className="input-group">
-                                            <input name='txt_hairColor' type="text" className="form-control" placeholder="Color de Cabello"  />
+                                            <input name='txt_hairColor' type="text" className="form-control" placeholder="Color de Cabello"  required/>
                                         </div>
                                     </div>
                                     <div className="form-group col-md-4">
                                         <label>Servicios</label>
-                                        <select name="slct_services" className="form-control" defaultValue='Convencional'>
+                                        <select name="slct_services" className="form-control" defaultValue='Convencional' required>
                                             <option value='Convencional'>Convencional</option>
                                             <option value='Completos'>Completos</option>
                                             <option value='Extras'>Convencional + Extras($)</option>
@@ -159,15 +187,15 @@ const UploadInformation = (props) => {
                                         <br/>
                                         <div className="form-check-inline">
                                             <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"/>
+                                                <input name="chk_propio" className="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"/>
                                                 <label className="form-check-label" htmlFor="inlineCheckbox1">Propio</label>
                                             </div>
                                             <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" />
+                                                <input name="chk_domicilio" className="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" />
                                                 <label className="form-check-label" htmlFor="inlineCheckbox1">Domicilio</label>
                                             </div>
                                             <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" />
+                                                <input name="chk_moteles" className="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" />
                                                 <label className="form-check-label" htmlFor="inlineCheckbox1">Moteles</label>
                                             </div>
                                         </div>
@@ -176,7 +204,7 @@ const UploadInformation = (props) => {
                                 <div className="form-row">
                                     <div className="form-group col-md-3">
                                         <label>Ubicación</label>
-                                        <select className="form-control" name="" id="">
+                                        <select name="slct_city" className="form-control" defaultValue='Punta Arenas'>
                                             <option value="Punta Arenas">Punta Arenas</option>
                                             <option value="Puerto Natales">Puerto Natalanes</option>
                                             <option value="Porvenir">Porvenir</option>
@@ -184,7 +212,7 @@ const UploadInformation = (props) => {
                                     </div>
                                     <div className="form-group col-md-2">
                                         <label>Horario</label>
-                                        <select className="form-control" name="" id="">
+                                        <select name='slct_times' className="form-control" id="">
                                             <option value="Full-Time">Full-Time</option>
                                             <option value="Part-Time">Part-Time</option>
                                         </select>
@@ -195,22 +223,18 @@ const UploadInformation = (props) => {
                                             <div className="input-group-prepend">
                                                 <span className="input-group-text">$</span>
                                             </div>
-                                            <input type="text" className="form-control" placeholder="Precio"  />
+                                            <input name='txt_price' type="text" className="form-control" placeholder="Precio"  />
                                         </div>
                                     </div>
-                                    <div className="form-group col-md-2">
-                                        <label>Certificada</label>
-                                        <select className="form-control" defaultValue='0' name="" id="">
-                                            <option value="1">Si</option>
-                                            <option value="0">No</option>
-                                        </select>
-                                    </div>
-                                    <div className="form-group col-md-2">
-                                        <label>Promo</label>
-                                        <select className="form-control" defaultValue='0' name="" id="">
-                                            <option value="1">Si</option>
-                                            <option value="0">No</option>
-                                        </select>
+                                    <div className="form-check-inline">
+                                        <div className="form-check">
+                                            <input name="chk_certified" className="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" />
+                                            <label className="form-check-label" htmlFor="inlineCheckbox1">Certificada</label>
+                                        </div>
+                                        <div className="form-check">
+                                            <input name="chk_promo" className="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" />
+                                            <label className="form-check-label" htmlFor="inlineCheckbox1">Promo</label>
+                                        </div>
                                     </div>
                                 </div>
                                 <button type="submit" className="btn btn-primary">Crear</button>

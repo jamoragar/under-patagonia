@@ -79,7 +79,7 @@ const Gallery = () => {
                                     <li>Nacionalidad: {model.nacionality}</li>
                                     <li>Valor: $50.000</li>
                                 </ul> */}
-                                <p className="slogan">Lorem ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                
                                 <Button variant="danger" onClick={() => {
                                             setImageModalShow(true)
                                             setSelectedModel(model)}
