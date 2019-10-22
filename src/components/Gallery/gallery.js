@@ -29,7 +29,7 @@ export const Models = () => {
         //
         // subscribed to any change in your data from data base!
         firebase.database().ref('Models').orderByChild('creationDate').on('value', (snapshot) => {
-            // console.log('With ON:',snapshot.val())
+            console.log('With ON:',snapshot.val())
             setModels(snapshot.val())
         });
 
@@ -74,7 +74,7 @@ const Gallery = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <h5>{model.name + ' ' +model.lastName}</h5>
+                                <h5>{model.name}</h5>
                                 {/* <ul className="somethingToSay">
                                     <li>Nacionalidad: {model.nacionality}</li>
                                     <li>Valor: $50.000</li>

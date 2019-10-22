@@ -26,29 +26,30 @@ const UploadInformation = (props) => {
         const cintura = e.target.elements.txt_cintura.value;
         const ass = e.target.elements.txt_ass.value;
         const hairColor = e.target.elements.txt_hairColor.value;
+        const services = e.target.elements.slct_services.value;
         const nameSplited = name.split(" ");
         let indexName;
     
         if(nameSplited.length > 1) indexName = nameSplited[0] + '_' + nameSplited[1];
         else indexName = 'none';
     
-        console.log(name);
+        console.log(services);
     
-        firebase.database().ref('Models/' + modelID).set({
-            name: name,
-            // lastName: lastName,
-            // nacionality: nacionality,
-            // age: age,
-            // gender : gender,
-            // weight: peso,
-            // height: estatura,
-            // boobs: busto,
-            // waist: cintura,
-            // ass: ass,
-            // hairColor: hairColor,
+        // firebase.database().ref('Models/' + modelID).set({
+        //     name: name,
+        //     nacionality: nacionality,
+        //     age: age,
+        //     gender : gender,
+        //     weight: peso,
+        //     height: estatura,
+        //     // boobs: busto,
+        //     // waist: cintura,
+        //     // ass: ass,
+        //     hairColor: hairColor,
+        //     services: 
     
-            creationDate: firebase.database.ServerValue.TIMESTAMP
-        });
+        //     creationDate: firebase.database.ServerValue.TIMESTAMP
+        // });
         props.onHide();
     }
     return (
@@ -147,7 +148,7 @@ const UploadInformation = (props) => {
                                     </div>
                                     <div className="form-group col-md-4">
                                         <label>Servicios</label>
-                                        <select className="form-control" defaultValue='Convencional'>
+                                        <select name="slct_services" className="form-control" defaultValue='Convencional'>
                                             <option value='Convencional'>Convencional</option>
                                             <option value='Completos'>Completos</option>
                                             <option value='Extras'>Convencional + Extras($)</option>

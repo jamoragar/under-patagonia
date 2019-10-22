@@ -6,7 +6,7 @@ import 'react-multi-carousel/lib/styles.css';
 import './Promotion.css';
 
 const Promotion = (models) => {
-     console.log(models)
+    //  console.log(models)
 
     const responsive = {
         desktop: {

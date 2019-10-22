@@ -23,6 +23,7 @@ const Upload = () => {
     }
     
     else{
+        console.log(models)
         Object.keys(models).map((key, index) => 
             content[index] = models[key]
          );
@@ -59,7 +60,7 @@ const Upload = () => {
                             return (
                                 <tr key={i}>
                                     <td>{i}</td>
-                                    <td>{model.name + ' ' + model.lastName}</td>
+                                    <td>{model.name}</td>
                                     <td>{model.age}</td>
                                     <td>{date + ' ' + hour}</td>
                                     <td>{model.promo === true ? 'SI' : 'NO' }</td>
