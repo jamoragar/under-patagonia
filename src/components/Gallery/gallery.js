@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Spinner, Button } from 'react-bootstrap'
 
 import firebase from '../Firebase/firebase';
+import axios from 'axios';
+
 
 import './gallery.css'
 import Jumbo from '../Jumbotron/Jumbotron';
@@ -38,6 +40,11 @@ export const Models = () => {
 }
 
 const Gallery = () => {
+    const [fireBaseDate, setFireBaseDate] = useState(null);
+    axios.post('https://us-central1-models-gallery-puq.cloudfunctions.net/date',{format:'DD/MM/YYYY'})
+        .then((response) => {
+            setFireBaseDate(response.data)
+        });
 
     let content = Models();
     let models = [];
@@ -60,34 +67,38 @@ const Gallery = () => {
 
                 <div className="img-area">
                     {models.map((model, key) =>{
-                        return (
-                            <div className="img-card" key={key}>
-                                <div className="flip-img">
-                                    <div className="flip-img-inner">
-                                        <div className="flip-img-front">
-                                            <img className="single-img card-img-top" src={model.thumbnail} alt="Model"/>
-                                        </div>
-                                        <div className="flip-img-back">
-                                            <h2>{model.verificada? 'Verificada!' : 'No Verificada'}</h2>
-                                            <p>Numbero: {model.phoneNumber}</p>
-                                            <p>8/10 rating</p>
+                        let myDate = new Date(model.creationDate);
+                        let modelEndDate = new Date(myDate.setDate(myDate.getDate() + 30)).toLocaleDateString('en-GB')
+                        if(fireBaseDate != modelEndDate){
+                            return (
+                                <div className="img-card" key={key}>
+                                    <div className="flip-img">
+                                        <div className="flip-img-inner">
+                                            <div className="flip-img-front">
+                                                <img className="single-img card-img-top" src={model.thumbnail} alt="Model"/>
+                                            </div>
+                                            <div className="flip-img-back">
+                                                <h2>{model.certified ? 'Verificada!' : 'No Verificada'}</h2>
+                                                <p>Número: {model.contact_number}</p>
+                                                <p>Ciudad: {model.city}</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <h5>{model.name}</h5>
-                                {/* <ul className="somethingToSay">
-                                    <li>Nacionalidad: {model.nacionality}</li>
-                                    <li>Valor: $50.000</li>
-                                </ul> */}
-                                
-                                <Button variant="danger" onClick={() => {
-                                            setImageModalShow(true)
-                                            setSelectedModel(model)}
-                                            }>
-                                    Ver
-                                </Button>
-                            </div>  
-                        );
+                                    <h5>{model.name}</h5>
+                                    {/* <ul className="somethingToSay">
+                                        <li>Nacionalidad: {model.nacionality}</li>
+                                        <li>Valor: $50.000</li>
+                                    </ul> */}
+                                    
+                                    <Button variant="danger" onClick={() => {
+                                                setImageModalShow(true)
+                                                setSelectedModel(model)}
+                                                }>
+                                        Ver
+                                    </Button>
+                                </div>  
+                            );
+                        }
                     })}                
                 </div>
                     <Image

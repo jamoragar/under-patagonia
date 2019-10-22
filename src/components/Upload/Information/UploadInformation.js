@@ -1,16 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import firebase from '../../Firebase/firebase';
 import './UploadInformation.css';
-import axios from 'axios';
 import { Modal } from 'react-bootstrap';
 
-
-
-
-
-
 const UploadInformation = (props) => {
-
     const submitInformation = (e) => {
 
         e.preventDefault();
@@ -34,6 +27,7 @@ const UploadInformation = (props) => {
         const times = e.target.elements.slct_times.value;
         const price = e.target.elements.txt_price.value;
         const certified = e.target.elements.chk_certified.checked;
+        const contact_number = e.target.elements.txt_num_contacto.value;
         const promo = e.target.elements.chk_promo.checked;
         const nameSplited = name.split(" ");
         let indexName;
@@ -70,7 +64,12 @@ const UploadInformation = (props) => {
             },
             city: city,
             times: times,
-            price: price,
+            price: {
+                hr: '',
+                media_hr: '',
+                momento: ''
+            },
+            contact_number: contact_number,
             certified: certified,
             promo: promo,
 
@@ -226,6 +225,14 @@ const UploadInformation = (props) => {
                                             <input name='txt_price' type="text" className="form-control" placeholder="Precio"  />
                                         </div>
                                     </div>
+                                    <div className="form-group col-md-4">
+                                        <label>Número de Contacto</label>
+                                        <div className="input-group">
+                                            <input type="text" name='txt_num_contacto' className="form-control" placeholder="Teléfono"  required/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="form-row">
                                     <div className="form-check-inline">
                                         <div className="form-check">
                                             <input name="chk_certified" className="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" />
@@ -237,6 +244,7 @@ const UploadInformation = (props) => {
                                         </div>
                                     </div>
                                 </div>
+                                
                                 <button type="submit" className="btn btn-primary">Crear</button>
                             </form>
                         </div>

@@ -85,7 +85,7 @@ h2{
     backface-visibility: hidden;
   }
 .flip-img-back {
-    background-color: #2980b9;
+    background-color: #222425;
     color: white;
     transform: rotateY(180deg);
   }

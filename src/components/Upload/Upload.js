@@ -44,7 +44,8 @@ const Upload = () => {
                             <th>#</th>
                             <th>Nombre</th>
                             <th>Edad</th>
-                            <th>Fecha</th>
+                            <th>Inicio</th>
+                            <th>Fin</th>
                             <th>Promo</th>
                             <th className="text-center">Action</th>
                         </tr>
@@ -55,14 +56,18 @@ const Upload = () => {
                         b = new Date (b.creationDate);
                         return a > b ? -1 : a < b ? 1 : 0;
                     }).map((model, i) => {
-                        let date = new Date(model.creationDate).toLocaleDateString("en-GB");
-                        let hour = new Date(model.creationDate).toLocaleTimeString("en-GB")
+                        let myDate = new Date(model.creationDate);
+                        let date = myDate.toLocaleDateString("en-GB");
+                        {/* let hour = myDate.toLocaleTimeString("en-GB"); */}
+                        let endDate = new Date(myDate.setDate(myDate.getDate() + 30)).toLocaleDateString("en-GB");
+                        
                             return (
                                 <tr key={i}>
                                     <td>{i}</td>
                                     <td>{model.name}</td>
                                     <td>{model.age}</td>
-                                    <td>{date + ' ' + hour}</td>
+                                    <td>{date}</td>
+                                    <td>{endDate}</td>
                                     <td>{model.promo === true ? 'SI' : 'NO' }</td>
                                     <td align="center">
                                         <a href='# ' className="text-primary"><i className="fa fa-fw fa-edit"></i> Editar</a> | 
