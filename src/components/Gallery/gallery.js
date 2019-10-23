@@ -69,7 +69,7 @@ const Gallery = () => {
                     {models.map((model, key) =>{
                         let myDate = new Date(model.creationDate);
                         let modelEndDate = new Date(myDate.setDate(myDate.getDate() + 30)).toLocaleDateString('en-GB')
-                        if(fireBaseDate != modelEndDate){
+                        if(fireBaseDate !== modelEndDate){
                             return (
                                 <div className="img-card" key={key}>
                                     <div className="flip-img">
@@ -81,6 +81,7 @@ const Gallery = () => {
                                                 <h2>{model.certified ? 'Verificada!' : 'No Verificada'}</h2>
                                                 <p>Número: {model.contact_number}</p>
                                                 <p>Ciudad: {model.city}</p>
+                                                <p>Servicios: {model.services}</p>
                                             </div>
                                         </div>
                                     </div>

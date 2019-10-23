@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import firebase from '../../Firebase/firebase';
 import './UploadInformation.css';
 import { Modal } from 'react-bootstrap';
@@ -25,17 +25,13 @@ const UploadInformation = (props) => {
         const placeMotel = e.target.elements.chk_moteles.checked;
         const city = e.target.elements.slct_city.value;
         const times = e.target.elements.slct_times.value;
-        const price = e.target.elements.txt_price.value;
         const certified = e.target.elements.chk_certified.checked;
         const contact_number = e.target.elements.txt_num_contacto.value;
         const promo = e.target.elements.chk_promo.checked;
-        const nameSplited = name.split(" ");
-        let indexName;
+        const priceMomento = e.target.elements.txt_price_momento.value;
+        const priceMedia = e.target.elements.txt_price_media.value;
+        const priceHr = e.target.elements.txt_price_hr.value;
     
-        if(nameSplited.length > 1) indexName = nameSplited[0] + '_' + nameSplited[1];
-        else indexName = 'none';
-    
-        console.log(city);
     
         firebase.database().ref('Models/' + modelID).set({
             name: name,
@@ -65,9 +61,9 @@ const UploadInformation = (props) => {
             city: city,
             times: times,
             price: {
-                hr: '',
-                media_hr: '',
-                momento: ''
+                hr: priceHr,
+                media_hr: priceMedia,
+                momento: priceMomento
             },
             contact_number: contact_number,
             certified: certified,
@@ -216,23 +212,6 @@ const UploadInformation = (props) => {
                                             <option value="Part-Time">Part-Time</option>
                                         </select>
                                     </div>
-                                    <div className="form-group col-md-3">
-                                        <label>Precio</label>
-                                        <div className="input-group">
-                                            <div className="input-group-prepend">
-                                                <span className="input-group-text">$</span>
-                                            </div>
-                                            <input name='txt_price' type="text" className="form-control" placeholder="Precio"  />
-                                        </div>
-                                    </div>
-                                    <div className="form-group col-md-4">
-                                        <label>Número de Contacto</label>
-                                        <div className="input-group">
-                                            <input type="text" name='txt_num_contacto' className="form-control" placeholder="Teléfono"  required/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="form-row">
                                     <div className="form-check-inline">
                                         <div className="form-check">
                                             <input name="chk_certified" className="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" />
@@ -243,7 +222,43 @@ const UploadInformation = (props) => {
                                             <label className="form-check-label" htmlFor="inlineCheckbox1">Promo</label>
                                         </div>
                                     </div>
+                                    <div className="form-group col-md-3">
+                                        <label>Número de Contacto</label>
+                                        <div className="input-group">
+                                            <input type="text" name='txt_num_contacto' className="form-control" placeholder="Teléfono"  required/>
+                                        </div>
+                                    </div>
                                 </div>
+                                <div className="form-row">
+                                    <div className="form-group col-md-4">
+                                        <label>Valor Hora</label>
+                                        <div className="input-group">
+                                            <div className="input-group-prepend">
+                                                <span className="input-group-text">$</span>
+                                            </div>
+                                            <input name='txt_price_hr' type="text" className="form-control" placeholder="Hora"  />
+                                        </div>
+                                    </div>
+                                    <div className="form-group col-md-4">
+                                    <label>Valor Media Hr.</label>
+                                        <div className="input-group">
+                                            <div className="input-group-prepend">
+                                                <span className="input-group-text">$</span>
+                                            </div>
+                                            <input name='txt_price_media' type="text" className="form-control" placeholder="Media Hr."  />
+                                        </div>
+                                    </div>
+                                    <div className="form-group col-md-4">
+                                    <label>Valor Momento</label>
+                                        <div className="input-group">
+                                            <div className="input-group-prepend">
+                                                <span className="input-group-text">$</span>
+                                            </div>
+                                            <input name='txt_price_momento' type="text" className="form-control" placeholder="Momento"  />
+                                        </div>
+                                    </div>
+                                </div>
+                                
                                 
                                 <button type="submit" className="btn btn-primary">Crear</button>
                             </form>
