@@ -1,4 +1,6 @@
-
+.Gallery {
+    padding: 0 1% 0 1%;
+}
 .Gallery h1{
     margin: 5% 0 0 0;
     text-align: center;
@@ -25,8 +27,8 @@
 .img-card{
     background: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 265px;
-    width: 265px;
+    max-width: 260px;
+    width: 260px;
     margin: 10px 20px 20px 0;
     text-align: center;
 }

@@ -1,7 +1,16 @@
+ol li{
+    list-style-type: none;
+  }
 .modelThumbnail{
     width: 20%;
     height: 20%;
 }
 .image-gallery-slide img {
     width: 380px;
+  }
+  .modelInfo{
+      font-weight: 300;
+  }
+  .importantModelInfo{
+      font-weight: bold;
   }
