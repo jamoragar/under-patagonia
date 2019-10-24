@@ -1,12 +1,24 @@
-import React from "react";
-import {Card} from 'react-bootstrap';
+import React, {useState} from "react";
+import {Card, Button} from 'react-bootstrap';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import Image from '../Image/Image';
+
 
 import './Promotion.css';
 
 const Promotion = (models) => {
-    //  console.log(models)
+
+    
+    const [imageModalShow, setImageModalShow] = useState(false);
+    const [selectedModel, setSelectedModel] = useState('');
+
+    let promotionModels = [];
+    models.models.map((model, index) => {
+        if(model.promo === true){
+            promotionModels[index] = model
+        }
+    });
 
     const responsive = {
         desktop: {
@@ -34,12 +46,10 @@ const Promotion = (models) => {
                 autoPlaySpeed={3000}
                 centerMode={false}
                 containerClass="container-with-dots"
-                dotListClass=""
                 autoPlay={3000}
                 draggable
                 focusOnSelect={false}
                 infinite={true}
-                itemClass=""
                 keyBoardControl
                 minimumTouchDrag={80}
                 renderDotsOutside={false}
@@ -49,57 +59,36 @@ const Promotion = (models) => {
                 slidesToSlide={1}
                 swipeable
             >
-                <Card className="Card"> 
-                    <Card.Body>
-                        <Card.Title>
-                        First Slide!!
-                        </Card.Title>
-                    </Card.Body>
-                    <Card.Footer>
-                        <small className="text-muted">Last updated 3 mins ago</small>
-                    </Card.Footer>
-                </Card>
-                <Card className="Card"> 
-                    <Card.Body>
-                        <Card.Title>
-                            Second Slide!   
-                        </Card.Title>
-                    </Card.Body>
-                    <Card.Footer>
-                        <small className="text-muted">Last updated 3 mins ago</small>
-                    </Card.Footer>
-                </Card>
-                <Card className="Card"> 
-                    <Card.Body>
-                        <Card.Title>
-                            Third Slide!
-                        </Card.Title>
-                    </Card.Body>
-                    <Card.Footer>
-                        <small className="text-muted">Last updated 3 mins ago</small>
-                    </Card.Footer>
-                </Card>
-                <Card className="Card"> 
-                    <Card.Body>
-                        <Card.Title>
-                            Fourth Slide!
-                        </Card.Title>
-                    </Card.Body>
-                    <Card.Footer>
-                        <small className="text-muted">Last updated 3 mins ago</small>
-                    </Card.Footer>
-                </Card>
-                <Card className="Card"> 
-                    <Card.Body>
-                        <Card.Title>
-                            Fifth Slide!
-                        </Card.Title>
-                    </Card.Body>
-                    <Card.Footer>
-                        <small className="text-muted">Last updated 3 mins ago</small>
-                    </Card.Footer>
-                </Card>
+            {
+                promotionModels.map((model, key) => { 
+                    let creationDate = new Date(model.creationDate).toLocaleDateString("en-GB");
+                    return(
+                        <Card className="Card" key={key} > 
+                            <Card.Body>
+                                <Card.Title>
+                                    {model.name}
+                                </Card.Title>
+                                <img className="Img" src={model.thumbnail} alt={"Under-Patagonia" + model.name}/>
+                            </Card.Body>
+                            <Button className="ButtonCard" variant="danger" onClick={() => {
+                                                setImageModalShow(true)
+                                                setSelectedModel(model)}
+                                                }>
+                                Ver
+                            </Button>
+                            <Card.Footer>
+                                <small className="text-muted">{"Subido el " + creationDate}</small>
+                            </Card.Footer>
+                        </Card>
+                    )
+                })
+            }
             </Carousel>
+                <Image
+                    show={imageModalShow}
+                    onHide={() => setImageModalShow(false)}
+                    model={selectedModel}
+                />
         </div>
         
     );

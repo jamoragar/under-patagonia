@@ -2,13 +2,14 @@ import React from 'react';
 import {Modal, Container, Row, Col } from 'react-bootstrap';
 import ImageGallery from 'react-image-gallery';
 import "react-image-gallery/styles/css/image-gallery.css";
+import './image.css';
 
 const Image = (props) => {
     
     let imagesModel = [];
 
     if(props.model === ""){
-        console.log("No model selected")
+        // Add code here
     }
     else{
         imagesModel = 

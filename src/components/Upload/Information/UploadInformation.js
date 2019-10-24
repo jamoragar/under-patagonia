@@ -54,9 +54,7 @@ const UploadInformation = (props) => {
             images: {
                 0: '',
                 1: '',
-                2: '',
-                3: '',
-                4: ''
+                2: ''
             },
             city: city,
             times: times,

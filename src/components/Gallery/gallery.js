@@ -31,7 +31,7 @@ export const Models = () => {
         //
         // subscribed to any change in your data from data base!
         firebase.database().ref('Models').orderByChild('creationDate').on('value', (snapshot) => {
-            console.log('With ON:',snapshot.val())
+            // var key = Object.keys(snapshot.val());
             setModels(snapshot.val())
         });
 
@@ -63,7 +63,7 @@ const Gallery = () => {
                 <Jumbo />
                 <Promotion models={models}/>
                 <div className="Gallery">
-                <h1>FlexBox Image Gallery</h1>
+                <h1>Galería - Under Patagonia</h1>
 
                 <div className="img-area">
                     {models.map((model, key) =>{

@@ -4,7 +4,17 @@
     background-color:#0000002e;
 }
 .Card{
-    height:24rem;
-    width:18rem;
+    height:34rem;
+    width:20rem;
     margin:auto;
+}
+.Img{
+    height: 22rem;
+    width: 100%;
+    margin:0 0 0 0;
+}
+.ButtonCard{
+    width: 80%;
+    margin: auto;
+    margin-bottom: 10px;
 }

@@ -13,6 +13,7 @@ const Upload = () => {
     
     let models = Models();
     let content = [];
+    let indexName = [];
 
     if(!models){
         return(
@@ -24,8 +25,10 @@ const Upload = () => {
     
     else{
         console.log(models)
-        Object.keys(models).map((key, index) => 
+        Object.keys(models).map((key, index) => {
             content[index] = models[key]
+            indexName[index] = Object.keys(models)[index];
+        }
          );
         return (
             <div className="col-md-9 ml-sm-auto col-lg-10 px-4 Upload">
@@ -41,7 +44,7 @@ const Upload = () => {
                 <table className="table table-dark table-hover">
                     <thead>
                         <tr className="bg-primary text-white">
-                            <th>#</th>
+                            <th>Nº</th>
                             <th>Nombre</th>
                             <th>Edad</th>
                             <th>Inicio</th>
