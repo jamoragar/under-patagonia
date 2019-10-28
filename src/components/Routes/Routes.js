@@ -2,7 +2,6 @@ import React from 'react';
 import { Router, Route, Switch, Redirect} from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
-import Navsidebar from '../Navsidebar/Navsidebar';
 import Gallery from '../Gallery/gallery';
 
 

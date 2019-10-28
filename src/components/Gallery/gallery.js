@@ -30,13 +30,22 @@ export const Models = () => {
         //
         //
         // subscribed to any change in your data from data base!
-        firebase.database().ref('Models').orderByChild('creationDate').on('value', (snapshot) => {
+        // firebase.database().ref('Models').orderByChild('creationDate').on('value', (snapshot) => {
+        firebase.database().ref('Models').on('value', (snapshot) => {
+
             // var key = Object.keys(snapshot.val());
             setModels(snapshot.val())
         });
 
     }, []);
     return models;
+}
+const shuffleArray = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
 }
 
 const Gallery = () => {
@@ -57,6 +66,8 @@ const Gallery = () => {
         Object.keys(content).map((key, index) => 
             models[index] = content[key]
         );
+        
+        models = shuffleArray(models);
 
         return(
             <div className="appContentBody">
@@ -71,7 +82,7 @@ const Gallery = () => {
                         let modelEndDate = new Date(myDate.setDate(myDate.getDate() + 30)).toLocaleDateString('en-GB')
                         if(fireBaseDate !== modelEndDate){
                             return (
-                                <div className="img-card" key={key}>
+                                <div className="img-card filterCard" key={key}>
                                     <div className="flip-img">
                                         <div className="flip-img-inner">
                                             <div className="flip-img-front">
@@ -100,7 +111,7 @@ const Gallery = () => {
                                 </div>  
                             );
                         }
-                    })}                
+                    return 0})}                
                 </div>
                     <Image
                         show={imageModalShow}

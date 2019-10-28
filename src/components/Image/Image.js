@@ -1,5 +1,5 @@
 import React from 'react';
-import {Modal, Container, Row, Col } from 'react-bootstrap';
+import {Modal, Container, Row, Col, Button } from 'react-bootstrap';
 import ImageGallery from 'react-image-gallery';
 import "react-image-gallery/styles/css/image-gallery.css";
 import './image.css';
@@ -58,7 +58,7 @@ const Image = (props) => {
                                 <li>Servicios: {props.model.services}</li>
                                 <li className="importantModelInfo">Trabajando en: {props.model.city}</li>
                                 <li className="importantModelInfo">
-                                    <a href={'https://wa.me/' + numberForWhatsapp + promotionText} target="_blank">Teléfono: {props.model.contact_number}</a>
+                                    <a href={'https://wa.me/' + numberForWhatsapp + promotionText} target="_blank" rel="noopener noreferrer">Teléfono: {props.model.contact_number}</a>
                                 </li>
                             </ol>
                         </Col>
