@@ -10,6 +10,7 @@ import Jumbo from '../Jumbotron/Jumbotron';
 import Image from '../Image/Image';
 import Promotion from '../Promotion/Promotion';
 import Footer from '../Footer/Footer';
+import Filter from '../Filter/filter';
 
 export const Models = () => {
     const [models, setModels] = useState(null);
@@ -66,7 +67,7 @@ const Gallery = () => {
         Object.keys(content).map((key, index) => 
             models[index] = content[key]
         );
-        
+
         models = shuffleArray(models);
 
         return(
@@ -76,11 +77,12 @@ const Gallery = () => {
                 <div className="Gallery">
                 <h1>Galería - Under Patagonia</h1>
 
+
                 <div className="img-area">
                     {models.map((model, key) =>{
                         let myDate = new Date(model.creationDate);
                         let modelEndDate = new Date(myDate.setDate(myDate.getDate() + 30)).toLocaleDateString('en-GB')
-                        if(fireBaseDate !== modelEndDate){
+                        if(fireBaseDate !== modelEndDate && model.active === true){
                             return (
                                 <div className="img-card filterCard" key={key}>
                                     <div className="flip-img">

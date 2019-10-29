@@ -66,6 +66,7 @@ const UploadInformation = (props) => {
             contact_number: contact_number,
             certified: certified,
             promo: promo,
+            active: true,
 
     
             creationDate: firebase.database.ServerValue.TIMESTAMP
