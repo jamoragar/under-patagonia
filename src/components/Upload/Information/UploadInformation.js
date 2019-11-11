@@ -34,6 +34,7 @@ const UploadInformation = (props) => {
     
     
         firebase.database().ref('Models/' + modelID).set({
+            id: modelID,
             name: name,
             nacionality: nacionality,
             age: age,
@@ -67,6 +68,7 @@ const UploadInformation = (props) => {
             certified: certified,
             promo: promo,
             active: true,
+            review: '',
 
     
             creationDate: firebase.database.ServerValue.TIMESTAMP

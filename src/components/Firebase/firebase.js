@@ -1,21 +1,23 @@
 import firebase from 'firebase/app';
 import 'firebase/database';
 import 'firebase/auth';
-import 'firebase/storage'
+import 'firebase/storage';
+import 'firebase/analytics';
 
 import {history} from '../Routes/Routes';
 
 // FIREBASE - PRODUCTION VERSION
 
 var firebaseConfig = {
-    apiKey: "AIzaSyAwY8zrKGC-9dSAJGmAkme8w_D19yxZML8",
-    authDomain: "models-gallery-puq.firebaseapp.com",
-    databaseURL: "https://models-gallery-puq.firebaseio.com",
-    projectId: "models-gallery-puq",
-    storageBucket: "",
-    messagingSenderId: "608348651644",
-    appId: "1:608348651644:web:606807bb235293fd"
-  };
+  apiKey: "AIzaSyAwY8zrKGC-9dSAJGmAkme8w_D19yxZML8",
+  authDomain: "models-gallery-puq.firebaseapp.com",
+  databaseURL: "https://models-gallery-puq.firebaseio.com",
+  projectId: "models-gallery-puq",
+  storageBucket: "models-gallery-puq.appspot.com",
+  messagingSenderId: "608348651644",
+  appId: "1:608348651644:web:606807bb235293fd",
+  measurementId: "G-PJWKX2KJ7M"
+};
 
   // FIREBASE - DEVELOPMENT VERSION
 
@@ -32,6 +34,7 @@ var firebaseConfig = {
   
   // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+firebase.analytics();
 
 export const LogIn = (email,pswd) => {
     firebase.auth()

@@ -1,11 +1,23 @@
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
+import firebase from '../Firebase/firebase';
 import './Upload.css';
 
 import UploadInformation from './Information/UploadInformation';
 
-import {Models} from '../Gallery/gallery'; 
 
+export const Models = () => {
+    
+    const [fbData, setFbData] = useState(null);
+
+    useEffect(() => {
+        // firebase.database().ref('Models').orderByChild('creationDate').on('value', (snapshot) => {
+        firebase.database().ref('Models').on('value', (snapshot) => {
+            setFbData(snapshot.val())
+        });
+
+    }, []);
+    return fbData;
+}
 
 const Upload = () => {
 

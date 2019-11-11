@@ -1,10 +1,14 @@
 import React from 'react';
 import {Modal, Container, Row, Col, Button } from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 import ImageGallery from 'react-image-gallery';
+// import Model from '../Model/model';
 import "react-image-gallery/styles/css/image-gallery.css";
 import './image.css';
 
 const Image = (props) => {
+    console.log(props);
+    
     
     let imagesModel = [];
     let numberForWhatsapp;
@@ -19,12 +23,12 @@ const Image = (props) => {
         numberWithOutPlus = props.model.contact_number.replace("+", "");
         numberForWhatsapp = numberWithOutPlus.replace(/ /g,'');
         imagesModel = 
-        props.model.images.map((image) => {
-            return {
-                original: image,
-                thumbnail: image,
-            }
-        })
+            props.model.images.map((image) => {
+                return {
+                    original: image,
+                    thumbnail: image,
+                }
+            })
     }
       
     return (
@@ -62,6 +66,13 @@ const Image = (props) => {
                                 </li>
                             </ol>
                         </Col>
+                        {/* <Col>
+                            <Button>
+                                <Link to={{
+                                    pathname: `/Model/${props.model.id}_${props.model.name}`
+                                }}>Ver Más!</Link>
+                            </Button>
+                        </Col> */}
                     </Row>
                 </Container>
             </Modal.Body>

@@ -1,0 +1,21 @@
+.Model{
+    margin: 10% 0 0 0;
+    padding: 0 8% 0 8%;
+}
+.Loading{
+    margin: 10% 0 0 0;
+    padding: 0 2% 0 2%;
+}
+h1, p{
+    text-align: center;
+}
+.bg-light{
+    border-bottom: 2px solid #fff;
+}
+.tittle{
+    margin: 3% 0 0 0;
+    border-bottom: 2px solid #fff;
+}
+.review{
+    margin: 2% 0 0 0;
+}

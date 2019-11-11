@@ -8,6 +8,7 @@ import Gallery from '../Gallery/gallery';
 import Dashboard from '../Dashboard/Dashboard';
 import Upload from '../Upload/Upload';
 import NavigationBar from '../Navbar/Navbar';
+import Model from '../Model/model';
 import _404 from '../404/404';
 
 export const history = createBrowserHistory();
@@ -26,6 +27,7 @@ const Routes = (props) => {
                 <Route path="/Dashboard" component={Dashboard} />
                 <Route path='/Upload' component={Upload} />
                 <Route path="/not-found" component={_404} />
+                <Route path="/model/:id" component={Model} />
                 <Route component={NotFoundRedirect} />
             </Switch>
         </Router>

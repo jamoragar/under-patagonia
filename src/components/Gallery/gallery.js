@@ -10,38 +10,11 @@ import Jumbo from '../Jumbotron/Jumbotron';
 import Image from '../Image/Image';
 import Promotion from '../Promotion/Promotion';
 import Footer from '../Footer/Footer';
-// import Filter from '../Filter/filter';
+import Filter from '../Filter/filter';
 
-export const Models = () => {
-    const [models, setModels] = useState(null);
 
-    useEffect(() =>{
-        // Single time fetching data
-        //
-        //
-        // firebase.database().ref()
-        // .once('value')
-        // .then((snapshot) => {
-        //     console.log('With ONCE', snapshot.val())
-        //     snapshot ? setData(snapshot.val()) : setData(null)
-        // })
-        // .catch((e) => {
-        //     console.log(e);
-        // });
-        //
-        //
-        // subscribed to any change in your data from data base!
-        // firebase.database().ref('Models').orderByChild('creationDate').on('value', (snapshot) => {
-        firebase.database().ref('Models').on('value', (snapshot) => {
-
-            // var key = Object.keys(snapshot.val());
-            setModels(snapshot.val())
-        });
-
-    }, []);
-    return models;
-}
 const shuffleArray = (array) => {
+
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
@@ -50,25 +23,33 @@ const shuffleArray = (array) => {
 }
 
 const Gallery = () => {
-    const [fireBaseDate, setFireBaseDate] = useState(null);
-    axios.post('https://us-central1-models-gallery-puq.cloudfunctions.net/date',{format:'DD/MM/YYYY'})
-        .then((response) => {
-            setFireBaseDate(response.data)
-        });
 
-    let content = Models();
-    let models = [];
-    
+    const [fireBaseDate, setFireBaseDate] = useState(null);    
     const [imageModalShow, setImageModalShow] = useState(false);
     const [selectedModel, setSelectedModel] = useState('');
-    
-    
-    if(content){
-        Object.keys(content).map((key, index) => 
-            models[index] = content[key]
-        );
+    const [fbData, setFbData] = useState(null);
 
-        models = shuffleArray(models);
+    useEffect(() => {
+        axios.post('https://us-central1-models-gallery-puq.cloudfunctions.net/date',{format:'DD/MM/YYYY'})
+            .then((response) => {
+                setFireBaseDate(response.data)
+        });
+
+        firebase.database().ref('Models').on('value', (snapshot) => {
+            var key = Object.values(snapshot.val());
+            key = shuffleArray(key);
+            setFbData(key);
+        });
+
+    }, []);
+
+    let models = [];
+    
+    if(fbData){
+        fbData.map((key, index) => {
+            models[index] = key;
+            }
+        );
 
         return(
             <div className="appContentBody">
@@ -77,7 +58,6 @@ const Gallery = () => {
                 <div className="Gallery">
                 <h1>Galería - Under Patagonia</h1>
 
-                {/* <Filter /> */}
 
                 <div className="img-area">
                     {models.map((model, key) =>{
@@ -100,10 +80,6 @@ const Gallery = () => {
                                         </div>
                                     </div>
                                     <h5>{model.name}</h5>
-                                    {/* <ul className="somethingToSay">
-                                        <li>Nacionalidad: {model.nacionality}</li>
-                                        <li>Valor: $50.000</li>
-                                    </ul> */}
                                     
                                     <Button variant="danger" onClick={() => {
                                                 setImageModalShow(true)
