@@ -25,10 +25,10 @@ const NavigationBar = (props) => {
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
-                <Nav className="mr-auto">
-                    <Nav.Link>Nosotros</Nav.Link>
-                    <Nav.Link>Novedades</Nav.Link>
-                    <Nav.Link>Contacto</Nav.Link>
+                <Nav className="mr-auto navlinks">
+                    <NavLink to='/Nosotros'>Nosotros  </NavLink>
+                    <NavLink>Novedades  </NavLink>
+                    <NavLink>Contacto</NavLink>
                 </Nav>
 
                 <Nav>
@@ -43,13 +43,16 @@ const NavigationBar = (props) => {
                                     <DropdownItem href="/Dashboard">Dashboard</DropdownItem>
                                     <DropdownItem href="/">Home</DropdownItem>
                                     <Dropdown.Divider />
-                                    <Dropdown.Item onClick={() => LogOut()}>Logout</Dropdown.Item>
+                                    <Dropdown.Item onClick={() => LogOut()}>Salir</Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
                         )
                         :
                         (
-                            <Nav.Link onClick={() => setModalShow(true)}>Login</Nav.Link>
+                            <div className="navLogins">
+                                <Nav.Link onClick={() => setModalShow(true)}>Registrarse</Nav.Link>
+                                <Nav.Link onClick={() => setModalShow(true)}>Entrar</Nav.Link>
+                            </div>
                         )
                     }
                 </Nav>

@@ -23,8 +23,8 @@ const Footer = () => {
 									<i className="fa fa-envelope fa-lg white-text mr-md-2"> magallanesescort@gmail.com</i>
 								</a>
 								<br/><br/>
-								<a className="ins-ic" href='https://www.instagram.com/under.patagonia/' target='_blank' rel="noopener noreferrer">
-									<i className="fab fa-instagram fa-lg white-text mr-md-2"> Under.Patagonia</i>
+								<a className="ins-ic" href='https://www.instagram.com/under_patagonia_2k19/' target='_blank' rel="noopener noreferrer">
+									<i className="fab fa-instagram fa-lg white-text mr-md-2"> Under_Patagonia_2k19</i>
 								</a>
 								<a className="wha-ic" href='https://wa.me/56941235790' target="_blank" rel="noopener noreferrer">
 									<i className="fab fa-whatsapp fa-lg white-text mr-md-2"> +56 9 4123 5790</i>

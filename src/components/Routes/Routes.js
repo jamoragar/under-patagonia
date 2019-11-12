@@ -10,6 +10,8 @@ import Upload from '../Upload/Upload';
 import NavigationBar from '../Navbar/Navbar';
 import Model from '../Model/model';
 import _404 from '../404/404';
+import Nosotros from '../Nosotros/Nosotros';
+
 
 export const history = createBrowserHistory();
 
@@ -28,6 +30,7 @@ const Routes = (props) => {
                 <Route path='/Upload' component={Upload} />
                 <Route path="/not-found" component={_404} />
                 <Route path="/model/:id" component={Model} />
+                <Route path="/Nosotros" component={Nosotros} />
                 <Route component={NotFoundRedirect} />
             </Switch>
         </Router>
