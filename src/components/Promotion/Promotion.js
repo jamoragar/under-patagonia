@@ -14,11 +14,12 @@ const Promotion = (models) => {
     const [selectedModel, setSelectedModel] = useState('');
 
     let promotionModels = [];
-    models.models.map((model, index) => {
+    models.models.forEach((model, index) => {
         if(model.promo === true){
             promotionModels[index] = model
         }
     });
+    
 
     const responsive = {
         desktop: {

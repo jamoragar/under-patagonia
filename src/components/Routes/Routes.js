@@ -26,7 +26,7 @@ const Routes = (props) => {
             <NavigationBar authenticated={props.authenticated} user={props.user}/>
             {/* {history.location.pathname === '/Dashboard' ? <Navsidebar /> : ''} */}
             <Switch>
-                <Route exact path="/" exact={true} component={Gallery} />
+                <Route exact path="/" component={Gallery} />
                 <Route path="/Dashboard" component={Dashboard} />
                 <Route path='/Upload' component={Upload} />
                 <Route path="/not-found" component={_404} />

@@ -10,7 +10,7 @@ import Jumbo from '../Jumbotron/Jumbotron';
 import Image from '../Image/Image';
 import Promotion from '../Promotion/Promotion';
 import Footer from '../Footer/Footer';
-import Filter from '../Filter/filter';
+// import Filter from '../Filter/filter';
 
 
 const shuffleArray = (array) => {
@@ -46,7 +46,7 @@ const Gallery = () => {
     let models = [];
     
     if(fbData){
-        fbData.map((key, index) => {
+        fbData.forEach((key, index) => {
             models[index] = key;
             }
         );

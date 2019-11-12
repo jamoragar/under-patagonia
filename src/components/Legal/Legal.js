@@ -5,7 +5,7 @@ import './Legal.png';
 const Legal = () =>{
 
     return(
-        <img className="legal" src={require('./Legal.png')}/>
+        <img className="legal" src={require('./Legal.png')} alt="Información Legal de under-patagonia" />
     )
 }
 

@@ -37,7 +37,7 @@ const Upload = () => {
     
     else{
         console.log(models)
-        Object.keys(models).map((key, index) => {
+        Object.keys(models).forEach((key, index) => {
             content[index] = models[key]
             indexName[index] = Object.keys(models)[index];
         }
@@ -73,9 +73,7 @@ const Upload = () => {
                     }).map((model, i) => {
                         let myDate = new Date(model.creationDate);
                         let date = myDate.toLocaleDateString("en-GB");
-                        {/* let hour = myDate.toLocaleTimeString("en-GB"); */}
-                        let endDate = new Date(myDate.setDate(myDate.getDate() + 30)).toLocaleDateString("en-GB");
-                        
+                        let endDate = new Date(myDate.setDate(myDate.getDate() + 30)).toLocaleDateString("en-GB");                        
                             return (
                                 <tr key={i}>
                                     <td>{i}</td>

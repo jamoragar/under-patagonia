@@ -5,7 +5,7 @@ import './Nosotros.png';
 const Nosotros = () =>{
     
     return(
-        <img className="Nosotros" src={require('./Nosotros.png')}/>
+        <img className="Nosotros" src={require('./Nosotros.png')} alt="Nosotros como Under-Patagonia"/>
         )
 }
 

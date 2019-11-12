@@ -16,7 +16,7 @@ const Model = (props) => {
             setModel(snapshot.val())
         });
 
-    }, []);
+    }, [ModelId]);
 
     
     if(model){

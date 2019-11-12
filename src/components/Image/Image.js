@@ -1,6 +1,6 @@
 import React from 'react';
-import {Modal, Container, Row, Col, Button } from 'react-bootstrap';
-import {Link} from 'react-router-dom';
+import { Modal, Container, Row, Col } from 'react-bootstrap';
+// import {Link} from 'react-router-dom';
 import ImageGallery from 'react-image-gallery';
 // import Model from '../Model/model';
 import "react-image-gallery/styles/css/image-gallery.css";

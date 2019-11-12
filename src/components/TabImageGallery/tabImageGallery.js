@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './tabImageGallery.css';
-import { Row } from 'react-bootstrap';
+// import { Row } from 'react-bootstrap';
 
 
 
@@ -27,7 +27,7 @@ const TabImageGallery = () => {
             <div className="container">
                 <span className="closebtn">&times;</span>
 
-                <img id="expandedImg" style={{width: '100%'}} />
+                <img id="expandedImg" style={{width: '100%'}} alt="Algo se debe escribir aquí" />
 
                 <div id="imgtext"></div>
             </div>
