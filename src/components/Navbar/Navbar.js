@@ -26,10 +26,10 @@ const NavigationBar = (props) => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto navlinks">
-                    <NavLink to='/Nosotros'>Nosotros  </NavLink>
-                    <NavLink to='/Legal'>Legal </NavLink>
-                    <NavLink>Novedades  </NavLink>
-                    <NavLink>Contacto</NavLink>
+                    <NavLink to='/Nosotros'>Nosotros</NavLink>
+                    <NavLink to='/Legal'>Legal</NavLink>
+                    <NavLink to='#'>Novedades  </NavLink>
+                    <NavLink to='#'>Contacto</NavLink>
                 </Nav>
 
                 <Nav>

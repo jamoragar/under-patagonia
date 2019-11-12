@@ -81,7 +81,7 @@ const Gallery = () => {
                                     </div>
                                     <h5>{model.name}</h5>
                                     
-                                    <Button variant="danger" onClick={() => {
+                                    <Button variant={model.gender === 'Femenino' ? 'danger' : 'warning'} onClick={() => {
                                                 setImageModalShow(true)
                                                 setSelectedModel(model)}
                                                 }>
