@@ -27,6 +27,7 @@ const NavigationBar = (props) => {
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto navlinks">
                     <NavLink to='/Nosotros'>Nosotros  </NavLink>
+                    <NavLink to='/Legal'>Legal </NavLink>
                     <NavLink>Novedades  </NavLink>
                     <NavLink>Contacto</NavLink>
                 </Nav>

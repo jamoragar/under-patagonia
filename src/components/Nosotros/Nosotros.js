@@ -1,12 +1,12 @@
 import React from 'react';
 import './Nosotros.css';
+import './Nosotros.png';
 
-const Nosotros = () => {
+const Nosotros = () =>{
+    
     return(
-        <div className="nosotros">
-            <h1>Hola Mundo, estas en Nosotros</h1>
-        </div>
-    )
+        <img className="Nosotros" src={require('./Nosotros.png')}/>
+        )
 }
 
 export default Nosotros;
