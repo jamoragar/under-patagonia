@@ -4,6 +4,7 @@ import { createBrowserHistory } from 'history';
 
 import Navsidebar from '../Navsidebar/Navsidebar';
 import Upload from '../Upload/Upload';
+import CreateAccount from '../CreateAccount/CreateAccount';
 
 
 import './Dashboard.css';
@@ -37,9 +38,9 @@ const Dashboard = () => {
                 </div>
             </div>
             <Switch>
-                <Route exact path="/" component={DashboardJSX} />
-                <Route path="/Dashboard" component={DashboardJSX} />
-                <Route path="/Upload" component={Upload} />
+                <Route exact path="/Dashboard" component={DashboardJSX} />
+                <Route path="/Dashboard/Upload" component={Upload} />
+                <Route path='/Dashboard/CreateAccount' component={CreateAccount} />
             </Switch>
         </Router>
     );

@@ -19,8 +19,13 @@ const Navsidebar = () => {
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink to={"/Upload"} className="nav-link">
+                            <NavLink to={"/Dashboard/Upload"} className="nav-link">
                             Modelos
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink to={"/Dashboard/CreateAccount"} className="nav-link">
+                            Cuentas de Usuario
                             </NavLink>
                         </li>
                     </ul>

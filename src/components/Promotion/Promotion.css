@@ -8,6 +8,10 @@
     width:20rem;
     margin:auto;
 }
+.card{
+    border: 9px solid;
+    
+}
 .Img{
     height: 22rem;
     width: 100%;

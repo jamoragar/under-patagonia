@@ -6,9 +6,7 @@ import ImageGallery from 'react-image-gallery';
 import "react-image-gallery/styles/css/image-gallery.css";
 import './image.css';
 
-const Image = (props) => {
-    console.log(props);
-    
+const Image = (props) => {    
     
     let imagesModel = [];
     let numberForWhatsapp;

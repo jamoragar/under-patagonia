@@ -64,23 +64,25 @@ const Promotion = (models) => {
                 promotionModels.map((model, key) => { 
                     let creationDate = new Date(model.creationDate).toLocaleDateString("en-GB");
                     return(
-                        <Card className="Card" key={key} > 
-                            <Card.Body>
-                                <Card.Title>
-                                    {model.name}
-                                </Card.Title>
-                                <img className="Img" src={model.thumbnail} alt={"Under-Patagonia" + model.name}/>
-                            </Card.Body>
-                            <Button className="ButtonCard" variant="danger" onClick={() => {
-                                                setImageModalShow(true)
-                                                setSelectedModel(model)}
-                                                }>
-                                Ver
-                            </Button>
-                            <Card.Footer>
-                                <small className="text-muted">{"Subido el " + creationDate}</small>
-                            </Card.Footer>
-                        </Card>
+                        <div className="element">
+                            <Card className="Card" key={key} > 
+                                <Card.Body>
+                                    <Card.Title>
+                                        {model.name}
+                                    </Card.Title>
+                                    <img className="Img" src={model.thumbnail} alt={"Under-Patagonia" + model.name}/>
+                                </Card.Body>
+                                <Button className="ButtonCard" variant="danger" onClick={() => {
+                                                    setImageModalShow(true)
+                                                    setSelectedModel(model)}
+                                                    }>
+                                    Ver
+                                </Button>
+                                <Card.Footer>
+                                    <small className="text-muted">{"Subido el " + creationDate}</small>
+                                </Card.Footer>
+                            </Card>
+                        </div>
                     )
                 })
             }

@@ -10,7 +10,7 @@ import Jumbo from '../Jumbotron/Jumbotron';
 import Image from '../Image/Image';
 import Promotion from '../Promotion/Promotion';
 import Footer from '../Footer/Footer';
-// import Filter from '../Filter/filter';
+import Filter from '../Filter/filter';
 
 
 const shuffleArray = (array) => {
@@ -58,6 +58,7 @@ const Gallery = () => {
                 <div className="Gallery">
                 <h1>Galería - Under Patagonia</h1>
 
+                <Filter />
 
                 <div className="img-area">
                     {models.map((model, key) =>{

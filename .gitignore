@@ -14,9 +14,6 @@
 # Poduction
 /production
 
-# Functions
-/Functions
-
 # misc
 .DS_Store
 .env.local

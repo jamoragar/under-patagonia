@@ -4,6 +4,7 @@ import { Nav, Navbar, Dropdown, DropdownItem } from 'react-bootstrap/';
 
 import {LogOut} from '../Firebase/firebase';
 import Login from '../Login/Login';
+import SignIn from '../SignIn/SignIn';
 // import {history} from '../Routes/Routes';
 
 import './Navbar.css';
@@ -14,7 +15,8 @@ const NavigationBar = (props) => {
     //     history.push('/'+path)
     // }
 
-    const [modalShow, setModalShow] = useState(false);
+    const [modalLogInShow, setModalLogInShow] = useState(false);
+    const [modalSignInShow, setModalSignInShow] = useState(false);
 
     return (
         <Navbar collapseOnSelect fixed="top" expand="lg" bg="dark" variant="dark">
@@ -51,17 +53,22 @@ const NavigationBar = (props) => {
                         :
                         (
                             <div className="navLogins">
-                                <Nav.Link onClick={() => setModalShow(true)}>Registrarse</Nav.Link>
-                                <Nav.Link onClick={() => setModalShow(true)}>Entrar</Nav.Link>
+                                <Nav.Link onClick={() => setModalSignInShow(true)}>Registrarse</Nav.Link>
+                                <Nav.Link onClick={() => setModalLogInShow(true)}>Entrar</Nav.Link>
                             </div>
                         )
                     }
                 </Nav>
             </Navbar.Collapse>
-            <Login
-            show={modalShow}
-            onHide={() => setModalShow(false)}
+            <SignIn
+            show={modalSignInShow}
+            onHide={() => setModalSignInShow(false)}
             />
+            <Login
+            show={modalLogInShow}
+            onHide={() => setModalLogInShow(false)}
+            />
+
         </Navbar>
     );
 }
