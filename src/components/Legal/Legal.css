@@ -1,8 +1,18 @@
-.legal {
+.Legal {
     margin: auto;
     position: absolute;
-    top: 0;
+    top: 15%;
     left: 0;
     bottom: 0;
     right: 0;
   }
+.Footer {
+    
+    margin-top: 50%;
+    color: #fff;
+    background-attachment: fixed;
+    background-color:#222;
+    background-size: cover;
+    background-position: bottom;
+  }
+ 
